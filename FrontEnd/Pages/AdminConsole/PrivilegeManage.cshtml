@@ -1,0 +1,32 @@
+﻿@page "{handler?}"
+@model FrontEnd.Pages.AdminConsole.PrivilegeManageModel
+@{
+    ViewData["Title"] = "Privileges";
+}
+@section styles{
+    <!--datatable css-->
+    <link href="~/css/dx.light.css" rel="stylesheet" />
+}
+@Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h5 class="card-title mb-0 flex-grow-1">Privilege Manager</h5>
+            </div>
+            <div class="card-body">
+                <div id="privGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <!--datatable js-->
+    <script src="~/js/dx.all.js"></script>
+    <script src="~/js/dx.aspnet.data.js"></script>
+    <script type="text/javascript">
+        var $roles = @Html.Raw(Json.Serialize(Model.GroupRoleDdl?.Roles));
+        var $menus = @Html.Raw(Json.Serialize(Model.GroupRoleDdl?.Groups));
+    </script>
+    <script src="~/js/privilege-page.js"></script>
+}

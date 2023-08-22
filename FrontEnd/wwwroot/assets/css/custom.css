@@ -1,0 +1,113 @@
+/*
+Template Name: Velzon - Admin & Dashboard Template
+Author: Themesbrand
+Website: https://themesbrand.com/
+Contact: support@themesbrand.com
+File: Custom Css File
+*/
+.section-divider {
+    height: 0;
+    border-top: 1px solid #DDD;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    .section-divider > span {
+        color: #000000;
+        background: #FFFFFF;
+        display: inline-block;
+        position: relative;
+        padding: 0 5px 0 0;
+        top: -11px;
+    }
+
+.input_container {
+    border: 0px solid #e5e5e5;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #DA8927;
+    color: white;
+    border: 0px;
+    padding: 10px 15px;
+    margin-right: 20px;
+    transition: .5s;
+    border-radius: 6px;
+}
+.file-input[disabled] {
+    background-color: #F9F9FA;
+    opacity: 0.5;
+}
+    input[type=file]::file-selector-button:hover {
+        background-color: #DA8927;
+        border: 0px;
+        border-right: 0px solid #e5e5e5;
+    }
+
+
+.bg-primary {
+    --vz-bg-opacity: 1;
+    background-color: #DA8927 !important;
+}
+.font6pt {
+    font-size: 10pt
+}
+
+.nav-link .active {
+    border-bottom: 2px solid #DA8824 !important;
+}
+
+.nav-success.nav-tabs-custom .nav-link.active {
+    color: #DA8824 !important;
+    background-color: var(--vz-card-bg-custom);
+    border-bottom: solid;
+}
+
+    .nav-success.nav-tabs-custom .nav-link.active::after {
+        background-color: #DA8824 !important;
+    }
+
+.btnLps {
+    background-color: #DA8824 !important;
+    color: white
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid black;
+}
+
+.card {
+    border-radius: 16px !important;
+    box-shadow: 0 2px 4px 0 #E9E8E7, #E9E8E7;
+}
+
+.card-header:first-child {
+    border-radius: 16px !important;
+}
+
+.card-footer {
+    border-radius: 16px !important;
+}
+
+.page-content {
+    padding: calc(70px + 1.5rem) calc(1.5rem * .5) 80px calc(1.5rem * .5) !important;
+}
+
+.text-bg-secondary {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.text-bg-success {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.text-bg-warning {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}

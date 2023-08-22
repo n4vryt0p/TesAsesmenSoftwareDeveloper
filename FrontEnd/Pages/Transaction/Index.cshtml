@@ -1,0 +1,63 @@
+﻿@page "{handler?}"
+@model IndexModel
+@{
+
+    ViewData["Title"] = "Transaksi";
+}
+@section styles{
+    <!--datatable css-->
+    <link href="~/css/dx.light.css" rel="stylesheet" />
+}
+@Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h5 class="card-title mb-0 flex-grow-1">News Settings</h5>
+                <button class="btn btn-primary waves-effect waves-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Tambah</button>
+            </div>
+            <div class="card-body">
+                <div id="newsGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- top offcanvas -->
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="height:60vh;">
+<div class="offcanvas-header">
+    <h5 id="offcanvasTopLabel">Transaksi</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+        <form action="#" id="submitTrx">
+            <div class="row g-3">
+                <div class="col-lg-12">
+                    <div class="form-floating">
+                        <textarea type="text" class="form-control" id="firstnamefloatingInput" name="alamatTujuan" placeholder="Alamat tujuan"></textarea>
+                        <label for="firstnamefloatingInput">Alamat tujuan</label>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-floating">
+                        <div id="prodGrig"></div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
+</div>
+@section scripts{
+    <!--datatable js-->
+    <script src="~/js/dx.all.js"></script>
+    <script src="~/js/dx.aspnet.data.js"></script>
+    <script type="text/javascript">
+        var $prod = @Html.Raw(Json.Serialize(Model.GroupRoleDdl));
+    </script>
+    <script src="~/js/news-setting-page.js"></script>
+}

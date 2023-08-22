@@ -1,0 +1,2335 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ManageEngine API",
+    "version": "v1"
+  },
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authenticate"
+        ],
+        "operationId": "GetAuthLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPass"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Authenticate"
+        ],
+        "operationId": "GetAuthRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPass"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/crawler-detik": {
+      "get": {
+        "tags": [
+          "BackeEndAPI"
+        ],
+        "operationId": "crawler-detik",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/crawler-cnn": {
+      "get": {
+        "tags": [
+          "BackeEndAPI"
+        ],
+        "operationId": "crawler-cnn",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/crawler-tweet": {
+      "get": {
+        "tags": [
+          "BackeEndAPI"
+        ],
+        "operationId": "crawler-tweet",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Dashboard": {
+      "post": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Sum",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DateRange"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashBoard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/topten": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "TopTenNews",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ToptenNews"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/masterlistserverside": {
+      "post": {
+        "tags": [
+          "Masters"
+        ],
+        "operationId": "GetMasterListServerside",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GridServerSide"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32MasterElementList<>f__AnonymousType23"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/masterlist": {
+      "get": {
+        "tags": [
+          "Masters"
+        ],
+        "operationId": "masterList",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MasterElement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/master/add": {
+      "post": {
+        "tags": [
+          "Masters"
+        ],
+        "operationId": "AddMasters",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasterElement"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/master/edit/{masterId}": {
+      "put": {
+        "tags": [
+          "Masters"
+        ],
+        "operationId": "UpdateMaster",
+        "parameters": [
+          {
+            "name": "masterId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasterDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/master/delete/{masterId}": {
+      "delete": {
+        "tags": [
+          "Masters"
+        ],
+        "operationId": "DeleteMaster",
+        "parameters": [
+          {
+            "name": "masterId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/MenulistByAppId": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "MenulistByAppId",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuDto2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menus": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "GetMenus",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuDto2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menus/{menuId}": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "GetMenuById",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Menu"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menusddl": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "GetMenusDdl",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupRoleDdl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menusddlbyparentid": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "menusddlbyparentid",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupDdl"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menus/add": {
+      "post": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "AddMenu",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Menu"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menus/edit/{appId}": {
+      "put": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "UpdateMenu",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "menu",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menus/delete/{appId}": {
+      "delete": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "DeleteMenu",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menulist": {
+      "get": {
+        "tags": [
+          "Menus"
+        ],
+        "operationId": "GetMenuListByUser",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuDto2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/newslistserverside": {
+      "post": {
+        "tags": [
+          "News"
+        ],
+        "operationId": "NewsListServerSide",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GridServerSide"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32NewsDtoList<>f__AnonymousType23"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/edit/{newsId}": {
+      "put": {
+        "tags": [
+          "News"
+        ],
+        "operationId": "UpdateNews",
+        "parameters": [
+          {
+            "name": "newsId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "newsDto",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/news/delete/{newsId}": {
+      "delete": {
+        "tags": [
+          "News"
+        ],
+        "operationId": "DeleteNews",
+        "parameters": [
+          {
+            "name": "newsId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/priv": {
+      "get": {
+        "tags": [
+          "Privileges"
+        ],
+        "operationId": "GetPrivileges",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Privilege"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/priv/add": {
+      "post": {
+        "tags": [
+          "Privileges"
+        ],
+        "operationId": "AddPrivileges",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupMenu"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/priv/edit/{roleId}/{menuId}": {
+      "put": {
+        "tags": [
+          "Privileges"
+        ],
+        "operationId": "UpdatePrivileges",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivilegesDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/priv/delete/{roleId}/{MenuId}": {
+      "delete": {
+        "tags": [
+          "Privileges"
+        ],
+        "operationId": "DeletePrivileges",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MenuId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rolelist": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "operationId": "GetRoleList",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rolelistddl": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "operationId": "GetRoleListDDL",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupDdl"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role/add": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "operationId": "AddRole",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/role/edit/{roleId}": {
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "operationId": "UpdateRole",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/role/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "operationId": "DeleteRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SyncNow": {
+      "get": {
+        "tags": [
+          "Sync"
+        ],
+        "operationId": "SyncNow",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/userlistaerverside": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetUserListServersided",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GridServerSide"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32UserDtoList<>f__AnonymousType23"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/add": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "AddUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/edit/{userId}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/delete/{userId}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppRole": {
+        "required": [
+          "isDelete"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedName": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "groupMenus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupMenu"
+            },
+            "nullable": true
+          },
+          "userApplications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserApplication"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppUser": {
+        "required": [
+          "isActive",
+          "isLogin"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nik": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "isLogin": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "rainbowId": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "fireBaseToken": {
+            "maxLength": 511,
+            "type": "string",
+            "nullable": true
+          },
+          "isSuperAdmin": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fullName": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "pinCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userApplications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserApplication"
+            },
+            "nullable": true
+          },
+          "notifDatas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotifData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application": {
+        "required": [
+          "appId",
+          "appName",
+          "isDelete"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "appName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "userApplications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserApplication"
+            },
+            "nullable": true
+          },
+          "menus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Menu"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationDto": {
+        "required": [
+          "appId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "appName": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthViewModel": {
+        "type": "object",
+        "properties": {
+          "appUser": {
+            "$ref": "#/components/schemas/UserDto"
+          },
+          "appRoles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "privileges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivilegeVm"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashBoard": {
+        "type": "object",
+        "properties": {
+          "allSum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "korpSum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "indSum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kompSum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "notSum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "korpPercent": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "indPercent": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "kompPercent": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateRange": {
+        "type": "object",
+        "properties": {
+          "sDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sDatUtc": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "eDatUtc": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Filter": {
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridServerSide": {
+        "type": "object",
+        "properties": {
+          "skip": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "take": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "requireTotalCount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sort": {
+            "type": "string",
+            "nullable": true
+          },
+          "filter": {
+            "type": "string",
+            "nullable": true
+          },
+          "sorting": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "filtering": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupDdl": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "zoomId": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupDto": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "appId": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "application": {
+            "$ref": "#/components/schemas/ApplicationDto"
+          },
+          "zoomId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupMenu": {
+        "required": [
+          "isAdd",
+          "isDelete",
+          "isEdit",
+          "isRead",
+          "menuId",
+          "roleId"
+        ],
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isRead": {
+            "type": "boolean"
+          },
+          "isAdd": {
+            "type": "boolean"
+          },
+          "isEdit": {
+            "type": "boolean"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "appRole": {
+            "$ref": "#/components/schemas/AppRole"
+          },
+          "menu": {
+            "$ref": "#/components/schemas/Menu"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupRoleDdl": {
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupDdl"
+            },
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupDdl"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Int32MasterElementList<>f__AnonymousType23": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MasterElement"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Int32NewsDtoList<>f__AnonymousType23": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Int32UserDtoList<>f__AnonymousType23": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Lexeme": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MasterDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "artikelElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "tagElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MasterElement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "accesibility": {
+            "maxLength": 25,
+            "type": "string",
+            "nullable": true
+          },
+          "isFilter": {
+            "type": "boolean",
+            "default": false
+          },
+          "parentElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "artikelElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "tagElement": {
+            "type": "string",
+            "nullable": true
+          },
+          "removeEl": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/News"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Menu": {
+        "required": [
+          "isActive",
+          "isDeleted",
+          "menuIndex",
+          "menuLink",
+          "menuName",
+          "uniqueName"
+        ],
+        "type": "object",
+        "properties": {
+          "menuId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "appId": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "parentMenuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuName": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "uniqueName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "icon": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "menuLink": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "menuIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "kolom": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentMenu": {
+            "$ref": "#/components/schemas/Menu"
+          },
+          "childMenu": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Menu"
+            },
+            "nullable": true
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "groupMenus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupMenu"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MenuDto2": {
+        "type": "object",
+        "properties": {
+          "menuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentMenuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "appName": {
+            "type": "string",
+            "nullable": true
+          },
+          "menuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentMenuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "uniqueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "menuLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          },
+          "menuIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "kolom": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MenuDto2"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "News": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateString": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "article": {
+            "type": "string",
+            "nullable": true
+          },
+          "author": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "tag": {
+            "type": "string",
+            "nullable": true
+          },
+          "sentiment": {
+            "maxLength": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "maxLength": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "fave": {
+            "type": "boolean",
+            "default": false
+          },
+          "searchVector": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Lexeme"
+            },
+            "nullable": true
+          },
+          "masterElementId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "masterElement": {
+            "$ref": "#/components/schemas/MasterElement"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewsDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "author": {
+            "type": "string",
+            "nullable": true
+          },
+          "fave": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sentiment": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotifData": {
+        "type": "object",
+        "properties": {
+          "notifDataId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "p256dh": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "auth": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "appUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "appUser": {
+            "$ref": "#/components/schemas/AppUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Privilege": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentMenuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          },
+          "appName": {
+            "type": "string",
+            "nullable": true
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "uniqueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean"
+          },
+          "isAdd": {
+            "type": "boolean"
+          },
+          "isEdit": {
+            "type": "boolean"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivilegeVm": {
+        "type": "object",
+        "properties": {
+          "menuId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parentMenuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "menuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "uniqueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean"
+          },
+          "isAdd": {
+            "type": "boolean"
+          },
+          "isEdit": {
+            "type": "boolean"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          },
+          "kolom": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MenuDto2"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivilegesDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentMenuId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "menuLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "appName": {
+            "type": "string",
+            "nullable": true
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "uniqueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isAdd": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isEdit": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleDto": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sort": {
+        "type": "object",
+        "properties": {
+          "selector": {
+            "type": "string",
+            "nullable": true
+          },
+          "desc": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToptenNews": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserApplication": {
+        "required": [
+          "isActive",
+          "isLogin"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "appId": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isLogin": {
+            "type": "boolean"
+          },
+          "loginDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "user": {
+            "$ref": "#/components/schemas/AppUser"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "appRole": {
+            "$ref": "#/components/schemas/AppRole"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "pass": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPass": {
+        "type": "object",
+        "properties": {
+          "uname": {
+            "type": "string",
+            "nullable": true
+          },
+          "pass": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "Please enter JWT token",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "description": "Please enter a valid API key",
+        "name": "X-API-KEY",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyAuth": [ ],
+      "bearerAuth": [ ]
+    }
+  ]
+}
